@@ -6,13 +6,15 @@ import src.Transport.Car;
 import src.Transport.TransportBase;
 import src.TransportCreator.TransportCreator;
 import src.TransportStorage.TransportStorage;
+import src.Database.Database;
 
 import java.util.Iterator;
 
 public class Controller {
 
     public Controller() {
-        storage = new TransportStorage();
+        db = new Database();
+        storage = new TransportStorage(db.deserialize());
     }
 
     public void addNewElement(String[] args) {
@@ -65,6 +67,10 @@ public class Controller {
         }
     }
 
+    public void serializeStorage() {
+        db.serialize(storage.getList());
+    }
+
     private void printElementFields(TransportBase element) {
         System.out.println("\n\nID:\t#" + element.getUniqueID());
         System.out.println("Type:\t" + element.getType());
@@ -93,4 +99,5 @@ public class Controller {
     }
 
     private TransportStorage storage;
+    private Database db;
 }

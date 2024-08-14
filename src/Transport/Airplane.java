@@ -8,6 +8,12 @@ public class Airplane extends TransportBase{
         maxCapacity = Integer.parseInt(args[7]);
     }
 
+    public Airplane(Airplane obj) {
+        super(obj);
+        this.wingspan = obj.wingspan;
+        this.maxCapacity = obj.maxCapacity;
+    }
+
     public int getWingspan() {
         return wingspan;
     }

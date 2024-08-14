@@ -8,6 +8,13 @@ public class Car extends TransportBase{
         ownersQuantity = Integer.parseInt(args[7]);
     }
 
+    public Car(Car obj) {
+        super(obj);
+        super.type = "Car";
+        this.mileage = obj.mileage;
+        this.ownersQuantity = obj.ownersQuantity;
+    }
+
     public int getMileage() {
         return mileage;
     }

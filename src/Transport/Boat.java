@@ -7,6 +7,12 @@ public class Boat extends TransportBase {
         displacement = Integer.parseInt(args[6]);
         length = Integer.parseInt(args[7]);
     }
+    public Boat(Boat obj) {
+        super(obj);
+        super.type = "Boat";
+        this.displacement = obj.displacement;
+        this.length = obj.length;
+    }
 
     public int getDisplacement() {
         return displacement;

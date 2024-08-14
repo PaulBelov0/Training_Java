@@ -46,15 +46,14 @@ public class Menu {
                         break;
                     case 3:
                         controller.showDatabase();
+                        System.out.println("\nPress Enter to continue...\n");
                         console.nextLine();
                         break;
                     case 4:
-                        editingID = enterElementID();
-                        controller.showElement(editingID);
-                        controller.deleteElement(editingID);
-                        controller.addNewElement(enterElementFields(true));
+                        editElement();
                         break;
                     case 5:
+                        controller.serializeStorage();
                         return;
                     default:
                         break;
@@ -150,12 +149,11 @@ public class Menu {
         return field;
     }
 
-    private void editElement(int ID) {
-        if (controller.checkElementAvailable(ID)) {
-            controller.deleteElement(ID);
-        } else {
-            throwError();
-        }
+    private void editElement() {
+        editingID = enterElementID();
+        controller.showElement(editingID);
+        controller.deleteElement(editingID);
+        controller.addNewElement(enterElementFields(true));
     }
 
     private int enterElementID() {

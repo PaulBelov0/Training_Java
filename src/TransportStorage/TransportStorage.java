@@ -6,8 +6,8 @@ import java.util.*;
 
 public class TransportStorage {
 
-    public TransportStorage() {
-         transportList = new ArrayList<>();
+    public TransportStorage(List<TransportBase> inputList) {
+        transportList = new ArrayList<>(inputList);
     }
 
     public void addElement(TransportBase element) {

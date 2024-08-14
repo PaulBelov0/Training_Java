@@ -1,6 +1,8 @@
 package src.Transport;
 
 
+import sun.rmi.transport.Transport;
+
 public abstract class TransportBase {
     public TransportBase(String[] args) {
         uniqueID = Integer.parseInt(args[0]);
@@ -8,6 +10,15 @@ public abstract class TransportBase {
         model = args[3];
         year = Integer.parseInt(args[4]);
         weight = Integer.parseInt(args[5]);
+    }
+
+    public TransportBase(TransportBase obj) {
+        this.uniqueID = obj.uniqueID;
+        this.type = obj.type;
+        this.brand = obj.brand;
+        this.model = obj.model;
+        this.year = obj.year;
+        this.weight = obj.weight;
     }
 
 
